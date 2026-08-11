@@ -11,8 +11,8 @@ her şey cihazda saklanır.
 | | |
 | --- | --- |
 | GitHub | https://github.com/AlpKebo/habit-tracker |
-| Android preview build (APK) | [indir](https://expo.dev/artifacts/eas/iQAosPfVWnKz0uEvwu7dqmx6w5mMjlIMm5Qggii9Su0.apk) |
-| EAS build sayfası | [f8e24197](https://expo.dev/accounts/alpkebo/projects/habit-tracker/builds/f8e24197-5c48-4501-aceb-663c1da30393) |
+| Android preview build (APK) | [indir](https://expo.dev/artifacts/eas/k7O7u5aaVInx3ifLZ_jsHXFd8dMDkIAGAHPPkfH1HI0.apk) |
+| EAS build sayfası | [717dd541](https://expo.dev/accounts/alpkebo/projects/habit-tracker/builds/717dd541-f100-4fb1-b623-8e2e0e73e205) |
 | iOS | Expo Go demo (ücretli Apple Developer hesabı gerektirmediği için) |
 
 ## Özellikler
@@ -159,8 +159,23 @@ için, son tamamlama dün ise seri bugün hâlâ ayaktadır — gün bitmeden bi
 eder. Bu durumda streak kartı "Serin risk altında" uyarısı gösterir. Seri, boş gün tamamen
 geçtikten sonra sıfırlanır.
 
-Ana senaryo ve edge case'ler doğrulandı: aynı gün duplicate artış yok, boş gün sonrası doğru
-reset, ay sınırında ardışıklık, sırasız veri, ve en iyi serinin korunması.
+### Streak testleri
+
+Streak mantığı saf fonksiyonlardan oluştuğu için doğrudan test edilebiliyor:
+
+```bash
+npm run test:streak
+```
+
+17 test; brief'teki Pazartesi–Perşembe senaryosunun her adımı, aynı gün duplicate artmaması,
+boş gün sonrası reset, ay sınırında ardışıklık, sırasız veri, en iyi serinin korunması ve
+undo'nun ledger'ı doğru güncellemesi. Test framework'ü gerekmiyor — Node'un yerleşik
+`node --test` runner'ı kullanılıyor.
+
+Bu, cihazda gözlemlenmesi bir takvim günü beklemeyi gerektiren **reset** davranışının
+kanıtıdır. Telefonda doğrulamak istersen: bugün bir goal tamamla, sonra sistem tarihini
+iki gün ileri al (iOS: Ayarlar → Genel → Tarih ve Saat → "Otomatik Ayarla" kapalı) ve
+uygulamayı yeniden aç — güncel seri 0'a düşer, en iyi seri korunur.
 
 ## Manuel test kontrol listesi
 
@@ -174,10 +189,14 @@ Aşağıdakiler gerçek bir iPhone'da Expo Go ile doğrulandı:
 - [x] Geçmiş bir hatırlatma zamanı seç; açıklayıcı hatanın çıktığını ve app'in çökmediğini gör.
 - [x] App'i tamamen kapatıp aç; goal'ların ve streak'in korunduğunu doğrula.
 
-Zamana bağlı oldukları için henüz gözlenmeyenler:
+- [x] Bir gün hiç goal tamamlanmadığında serinin sıfırlandığını doğrula —
+      `npm run test:streak` ile otomatik test edildi; cihazda doğrulamak için yukarıdaki
+      sistem tarihi yöntemini kullan.
+
+Henüz gözlenmeyen:
 
 - [ ] Bildirim iznini reddet; banner'ın ve "Ayarları aç" akışının çalıştığını doğrula.
-- [ ] Bir gün hiç goal tamamlama; ertesi gün serinin sıfırlandığını doğrula.
+- [ ] Android cihazda spacing kontrolü (iOS'ta test edildi, Android yalnızca build edildi).
 
 ## Notlar
 

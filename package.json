@@ -38,7 +38,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "test:streak": "tsc -p tsconfig.test.json && node --test tests/streak.test.js"
   },
   "private": true
 }
