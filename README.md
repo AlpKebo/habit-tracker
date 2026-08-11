@@ -193,10 +193,13 @@ Aşağıdakiler gerçek bir iPhone'da Expo Go ile doğrulandı:
       `npm run test:streak` ile otomatik test edildi; cihazda doğrulamak için yukarıdaki
       sistem tarihi yöntemini kullan.
 
+- [x] Bildirim izni kapalıyken uyarı banner'ının göründüğünü ve app'in çökmediğini doğrula.
+
 Henüz gözlenmeyen:
 
-- [ ] Bildirim iznini reddet; banner'ın ve "Ayarları aç" akışının çalıştığını doğrula.
 - [ ] Android cihazda spacing kontrolü (iOS'ta test edildi, Android yalnızca build edildi).
+- [ ] Development build ile gerçek telefonda test — fiziksel iPhone'a internal build kurmak
+      ücretli Apple Developer hesabı ve `eas device:create` ile cihaz kaydı gerektiriyor.
 
 ## Notlar
 
