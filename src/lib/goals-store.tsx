@@ -20,13 +20,15 @@ import {
   computeStreak,
   removeCompletionDayIfUnused,
 } from './streak';
-import type { Goal, GoalDraft, PersistedState, Streak } from './types';
+import type { DayKey, Goal, GoalDraft, PersistedState, Streak } from './types';
 
 type GoalsContextValue = {
   /** False until the first read from AsyncStorage lands. */
   ready: boolean;
   goals: Goal[];
   streak: Streak;
+  /** Every calendar day that had at least one completion, ascending. */
+  completionDays: DayKey[];
   /** How many goals were ticked off today — shown next to the streak. */
   todayCompletions: number;
   /** True once today counts towards the streak, so the UI can warn when it does not. */
@@ -260,6 +262,7 @@ export function GoalsProvider({ children }: { children: React.ReactNode }) {
       ready,
       goals: state.goals,
       streak: state.streak,
+      completionDays: state.completionDays,
       todayCompletions,
       completedToday,
       permission,
@@ -274,6 +277,7 @@ export function GoalsProvider({ children }: { children: React.ReactNode }) {
       ready,
       state.goals,
       state.streak,
+      state.completionDays,
       todayCompletions,
       completedToday,
       permission,

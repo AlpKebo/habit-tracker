@@ -39,6 +39,19 @@ export function reminderDateFor(deadlineIso: string, remindDaysBefore: number | 
   return addDays(new Date(deadlineIso), -remindDaysBefore);
 }
 
+/** The last `count` calendar days ending today, oldest first. */
+export function lastDays(count: number, today: Date = new Date()): Date[] {
+  const start = startOfDay(today);
+  return Array.from({ length: count }, (_, i) => addDays(start, i - (count - 1)));
+}
+
+const WEEKDAY_LABELS = ['Pa', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'];
+
+/** Two-letter Turkish weekday label, e.g. "Pt" for Monday. */
+export function weekdayLabel(date: Date): string {
+  return WEEKDAY_LABELS[date.getDay()];
+}
+
 const dateFormatter = new Intl.DateTimeFormat('tr-TR', {
   day: '2-digit',
   month: 'long',

@@ -99,7 +99,7 @@ export function GoalForm({ initial, submitLabel, onSubmit, onDelete }: Props) {
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag">
-        <View style={styles.field}>
+        <View style={[styles.field, { backgroundColor: theme.surface, borderColor: theme.border }]}>
           <Text style={[styles.label, { color: theme.textSecondary }]}>Başlık *</Text>
           <TextInput
             maxLength={TITLE_MAX}
@@ -120,7 +120,7 @@ export function GoalForm({ initial, submitLabel, onSubmit, onDelete }: Props) {
           )}
         </View>
 
-        <View style={styles.field}>
+        <View style={[styles.field, { backgroundColor: theme.surface, borderColor: theme.border }]}>
           <Text style={[styles.label, { color: theme.textSecondary }]}>Açıklama</Text>
           <TextInput
             multiline
@@ -132,7 +132,7 @@ export function GoalForm({ initial, submitLabel, onSubmit, onDelete }: Props) {
           />
         </View>
 
-        <View style={styles.field}>
+        <View style={[styles.field, { backgroundColor: theme.surface, borderColor: theme.border }]}>
           <Text style={[styles.label, { color: theme.textSecondary }]}>Deadline *</Text>
           <DateTimeField onChange={setDeadline} value={deadline} />
           {showError(deadlineError) ? (
@@ -144,7 +144,7 @@ export function GoalForm({ initial, submitLabel, onSubmit, onDelete }: Props) {
           )}
         </View>
 
-        <View style={styles.field}>
+        <View style={[styles.field, { backgroundColor: theme.surface, borderColor: theme.border }]}>
           <Text style={[styles.label, { color: theme.textSecondary }]}>Hatırlatma</Text>
           <View style={styles.chips}>
             {REMINDER_OPTIONS.map((option) => {
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
   },
   content: {
-    gap: Spacing.xl,
+    gap: Spacing.md,
     padding: Spacing.lg,
     paddingBottom: Spacing.xxl,
   },
@@ -235,7 +235,10 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   field: {
+    borderRadius: Radius.lg,
+    borderWidth: StyleSheet.hairlineWidth,
     gap: Spacing.sm,
+    padding: Spacing.lg,
   },
   flex: {
     flex: 1,
@@ -258,7 +261,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   submit: {
-    marginTop: Spacing.sm,
+    marginTop: Spacing.md,
   },
   textarea: {
     minHeight: 96,
