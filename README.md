@@ -6,6 +6,15 @@ her şey cihazda saklanır.
 
 > Exposure AI Academy · Project 9 · React Native + Expo + Local Notifications
 
+## Teslim linkleri
+
+| | |
+| --- | --- |
+| GitHub | https://github.com/AlpKebo/habit-tracker |
+| Android preview build (APK) | [indir](https://expo.dev/artifacts/eas/iQAosPfVWnKz0uEvwu7dqmx6w5mMjlIMm5Qggii9Su0.apk) |
+| EAS build sayfası | [f8e24197](https://expo.dev/accounts/alpkebo/projects/habit-tracker/builds/f8e24197-5c48-4501-aceb-663c1da30393) |
+| iOS | Expo Go demo (ücretli Apple Developer hesabı gerektirmediği için) |
+
 ## Özellikler
 
 - **Goal yönetimi** — sınırsız goal oluştur, düzenle, sil, tamamlandı işaretle ve geri al.
@@ -155,14 +164,19 @@ reset, ay sınırında ardışıklık, sırasız veri, ve en iyi serinin korunma
 
 ## Manuel test kontrol listesi
 
-- [ ] Birden fazla goal oluştur, düzenle, sil, tamamla ve geri al.
-- [ ] Deadline'ı **2 dakika sonrasına**, hatırlatmayı **"Deadline anında"** ayarla ve bildirimin
+Aşağıdakiler gerçek bir iPhone'da Expo Go ile doğrulandı:
+
+- [x] Birden fazla goal oluştur, düzenle, sil, tamamla ve geri al.
+- [x] Deadline'ı **2 dakika sonrasına**, hatırlatmayı **"Deadline anında"** ayarla ve bildirimin
       gerçekten geldiğini gör.
-- [ ] Goal'ı düzenleyip deadline'ı değiştir; eski bildirimin gelmediğini, yenisinin geldiğini gör.
-- [ ] Goal'ı tamamla veya sil; bildirimin artık gelmediğini doğrula.
-- [ ] Geçmiş bir hatırlatma zamanı seç; açıklayıcı hatanın çıktığını ve app'in çökmediğini gör.
+- [x] Goal'ı düzenleyip deadline'ı değiştir; eski bildirimin gelmediğini, yenisinin geldiğini gör.
+- [x] Goal'ı tamamla veya sil; bildirimin artık gelmediğini doğrula.
+- [x] Geçmiş bir hatırlatma zamanı seç; açıklayıcı hatanın çıktığını ve app'in çökmediğini gör.
+- [x] App'i tamamen kapatıp aç; goal'ların ve streak'in korunduğunu doğrula.
+
+Zamana bağlı oldukları için henüz gözlenmeyenler:
+
 - [ ] Bildirim iznini reddet; banner'ın ve "Ayarları aç" akışının çalıştığını doğrula.
-- [ ] App'i tamamen kapatıp aç; goal'ların ve streak'in korunduğunu doğrula.
 - [ ] Bir gün hiç goal tamamlama; ertesi gün serinin sıfırlandığını doğrula.
 
 ## Notlar
